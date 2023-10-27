@@ -58,8 +58,21 @@
             </div>
         </div>
     </div>
-
+    
 </section>
+<div id="notification">
+    <h2>CẢNH BÁO NGUY HIỂM!</h2>
+    <p>Người dùng đang nhấn nút cầu cứu, xin hãy kiểm tra.</p>
+    <br>
+    <button class="btn" id="close_btn">X</button>
+    <script>
+        const close_btn = document.getElementById('close_btn');
+        const notification = document.getElementById('notification');
+        close_btn.addEventListener('click', () => {
+            notification.style.display = 'none';
+        })
+    </script>
+</div>
 <!--    <script src="socket.io.js"></script>-->
 <script src="/socket.io/socket.io.js"></script>
 <!--    socket -->
@@ -102,6 +115,9 @@
             removeData(tempChart);
             removeData(spoChart);
             removeData(COChart);
+        }
+        if (message.needHelp == true) {
+            notification.style.display = 'block';
         }
     })
 
