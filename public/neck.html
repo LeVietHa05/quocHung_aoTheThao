@@ -101,6 +101,7 @@
     });
     
     socket.on("message", (message) => {
+        console.log(message)
         MAX30100.innerText = `${message.temp} °C`;
         SPO2.innerText = `${message.humi} %`;
         CO.innerText = `${message.co}`;
